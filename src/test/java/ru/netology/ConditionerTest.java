@@ -6,33 +6,58 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ConditionerTest {
+
     @Test
-    public void shouldCreate() {
+        //увеличение температуры без выхода за допустимый предел
+    void increaseCurrentTemperature () {
         Conditioner conditioner = new Conditioner();
+        conditioner.setMinTemperature(10);
+        conditioner.setMaxTemperature(50);
+        conditioner.setCurrentTemperature(30);
+        conditioner.increaseCurrentTemperature();
+        int actual = conditioner.getCurrentTemperature();
+        int expected = 31;
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldInitFieldToZeroValues() {
+        //увеличение температуры с выходом за допустимый предел
+    void increaseOverMaxCurrentTemperature() {
         Conditioner conditioner = new Conditioner();
-        assertNull(conditioner.name);
-        assertEquals(0, conditioner.maxTemperature);
-        assertEquals(0, conditioner.minTemperature);
-        assertEquals(0, conditioner.currentTemperature);
-        assertFalse(conditioner.on);
+        conditioner.setMinTemperature(10);
+        conditioner.setMaxTemperature(50);
+        conditioner.setCurrentTemperature(50);
+        conditioner.increaseCurrentTemperature();
+        int actual = conditioner.getCurrentTemperature();
+        int expected = 50;
+        assertEquals(expected, actual);
     }
 
     @Test
-    @Disabled
-    public void shouldThrowNPE() {
+        //уменьшение температуры без выхода за допустимый предел
+    void decreaseCurrentTemperature () {
         Conditioner conditioner = new Conditioner();
-        assertEquals(0, conditioner.name.length());
+        conditioner.setMinTemperature(10);
+        conditioner.setMaxTemperature(50);
+        conditioner.setCurrentTemperature(30);
+        conditioner.decreaseCurrentTemperature();
+        int actual = conditioner.getCurrentTemperature();
+        int expected = 29;
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldChangeFields() {
+        //уменьшение температуры с выходом за допустимый предел
+    void decreaseOverMaxCurrentTemperature() {
         Conditioner conditioner = new Conditioner();
-        assertEquals(0, conditioner.currentTemperature);
-        conditioner.currentTemperature = -100;
-        assertEquals(-100, conditioner.currentTemperature);
+        conditioner.setMinTemperature(10);
+        conditioner.setMaxTemperature(50);
+        conditioner.setCurrentTemperature(10);
+        conditioner.decreaseCurrentTemperature();
+        int actual = conditioner.getCurrentTemperature();
+        int expected = 10;
+        assertEquals(expected, actual);
     }
+
+
 }
