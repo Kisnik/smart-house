@@ -9,7 +9,7 @@ class ConditionerTest {
 
     @Test
         //увеличение температуры без выхода за допустимый предел
-    void increaseCurrentTemperature () {
+    void increaseCurrentTemperature() {
         Conditioner conditioner = new Conditioner();
         conditioner.setMinTemperature(10);
         conditioner.setMaxTemperature(50);
@@ -35,7 +35,7 @@ class ConditionerTest {
 
     @Test
         //уменьшение температуры без выхода за допустимый предел
-    void decreaseCurrentTemperature () {
+    void decreaseCurrentTemperature() {
         Conditioner conditioner = new Conditioner();
         conditioner.setMinTemperature(10);
         conditioner.setMaxTemperature(50);

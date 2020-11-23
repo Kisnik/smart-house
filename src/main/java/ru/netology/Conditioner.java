@@ -63,11 +63,11 @@ public class Conditioner {
     }
 
     public void increaseCurrentTemperature() {
-        setCurrentTemperature(this.currentTemperature+1);
+        setCurrentTemperature(this.currentTemperature + 1);
     }
 
     public void decreaseCurrentTemperature() {
-        setCurrentTemperature(this.currentTemperature-1);
+        setCurrentTemperature(this.currentTemperature - 1);
     }
 }
 
